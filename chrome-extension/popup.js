@@ -8,12 +8,55 @@ function slugify(title, date) {
 }
 
 function extractPageInfo() {
-  // Runs inside the Mixcloud page. Mixcloud's title tag is usually
-  // "Mix Name by Username | Mixcloud" — strip the site suffix as a
-  // starting guess; the popup lets you correct it either way.
-  const title = document.title.replace(/\s*\|\s*Mixcloud\s*$/i, "");
-  const timeEl = document.querySelector("time[datetime]");
-  const date = timeEl ? timeEl.getAttribute("datetime").slice(0, 10) : "";
+  // Runs inside the Mixcloud page. The upload/edit form has an
+  // <input id="name"> holding the actual mix title, which is more
+  // reliable than the <title> tag; fall back to that if it's missing.
+  const nameInput = document.getElementById("name");
+  const title = nameInput && nameInput.value
+    ? nameInput.value
+    : document.title.replace(/\s*\|\s*Mixcloud\s*$/i, "");
+
+  // The date is usually hand-written somewhere in the description
+  // textarea (e.g. "8/23/1994" or "August 23, 1994") rather than
+  // exposed as structured markup, so parse it out of that text.
+  function parseDate(text) {
+    const months = [
+      "jan", "feb", "mar", "apr", "may", "jun",
+      "jul", "aug", "sep", "oct", "nov", "dec",
+    ];
+    let m = text.match(/\b(\d{4})-(\d{2})-(\d{2})\b/);
+    if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+
+    m = text.match(/\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+    if (m) {
+      const [, mo, day, year] = m;
+      return `${year}-${mo.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    }
+
+    m = text.match(/\b([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+(\d{4})\b/);
+    if (m) {
+      const idx = months.indexOf(m[1].slice(0, 3).toLowerCase());
+      if (idx >= 0) return `${m[3]}-${String(idx + 1).padStart(2, "0")}-${m[2].padStart(2, "0")}`;
+    }
+
+    m = text.match(/\b(\d{1,2})\s+([A-Za-z]{3,9})\.?,?\s+(\d{4})\b/);
+    if (m) {
+      const idx = months.indexOf(m[2].slice(0, 3).toLowerCase());
+      if (idx >= 0) return `${m[3]}-${String(idx + 1).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+    }
+
+    return "";
+  }
+
+  const descEl = document.getElementById("description");
+  const descText = descEl ? descEl.value || descEl.textContent || "" : "";
+  let date = parseDate(descText);
+
+  if (!date) {
+    const timeEl = document.querySelector("time[datetime]");
+    date = timeEl ? timeEl.getAttribute("datetime").slice(0, 10) : "";
+  }
+
   return { title, date };
 }
 
