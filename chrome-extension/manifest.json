@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Mixhoster Recovery Helper",
+  "version": "1.0",
+  "description": "Captures .m3u8 stream URLs while you browse your own Mixcloud mixes, and builds the recover-mix.sh command for you.",
+  "permissions": ["webRequest", "webNavigation", "activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": [
+    "*://*.mixcloud.com/*",
+    "*://*.mixcloud.stream/*",
+    "http://127.0.0.1:8787/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Mixhoster Recovery Helper"
+  }
+}

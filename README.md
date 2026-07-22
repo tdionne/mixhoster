@@ -91,3 +91,7 @@ This downloads and transcodes the stream to mp3 (`ffmpeg` required —
 `brew install ffmpeg`), uploads it to R2, and appends an entry to
 `public/mixes.json`. Redeploy with `wrangler pages deploy public` when
 ready.
+
+To skip the manual dev-tools step, see `chrome-extension/` — a small
+unpacked extension that captures the `.m3u8` URL for you and builds the
+command above.

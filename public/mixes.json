@@ -22,5 +22,21 @@
     "description": "",
     "audio": "crowded-house-2006.mp3",
     "durationSeconds": 3892
+  },
+  {
+    "slug": "thursday-house-jams-33-2020",
+    "title": "Thursday House Jams 33",
+    "date": "2020-01-15",
+    "description": "",
+    "audio": "thursday-house-jams-33-2020.mp3",
+    "durationSeconds": 6360
+  },
+  {
+    "slug": "thursday-house-james-35-2020",
+    "title": "Thursday House James 35",
+    "date": "2020-01-28",
+    "description": "",
+    "audio": "thursday-house-james-35-2020.mp3",
+    "durationSeconds": 4290
   }
 ]
