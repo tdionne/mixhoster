@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mixes</h1>
+  </header>
+  <main id="mix-list" aria-live="polite"></main>
+
+  <template id="mix-card-template">
+    <article class="mix">
+      <img class="mix-cover" alt="" />
+      <div class="mix-body">
+        <h2 class="mix-title"></h2>
+        <p class="mix-meta"></p>
+        <p class="mix-description"></p>
+        <audio controls preload="none"></audio>
+        <a class="mix-download" download>Download mp3</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
