@@ -21,8 +21,12 @@ function renderMix(mix, template) {
   const audioUrl = new URL(mix.audio, AUDIO_BASE_URL).href;
 
   const cover = node.querySelector(".mix-cover");
-  cover.src = mix.cover;
-  cover.alt = `${mix.title} cover art`;
+  if (mix.cover) {
+    cover.src = mix.cover;
+    cover.alt = `${mix.title} cover art`;
+  } else {
+    cover.remove();
+  }
 
   node.querySelector(".mix-title").textContent = mix.title;
   node.querySelector(".mix-meta").textContent = [
