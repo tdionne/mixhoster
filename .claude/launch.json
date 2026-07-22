@@ -4,7 +4,7 @@
     {
       "name": "mixhoster-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "4173", "."],
+      "runtimeArgs": ["serve", "-l", "4173", "public"],
       "port": 4173
     }
   ]

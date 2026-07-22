@@ -23,7 +23,7 @@ $0 in egress (R2 doesn't charge for bandwidth out), $0 for Pages.
    - Cloudflare dashboard → R2 → `mixhoster-audio` → Settings → Custom Domains
      → add e.g. `mixes.yourdomain.com` (your domain needs to already be on
      Cloudflare DNS).
-   - Update `config.js` — set `AUDIO_BASE_URL` to `https://mixes.yourdomain.com/`.
+   - Update `public/config.js` — set `AUDIO_BASE_URL` to `https://mixes.yourdomain.com/`.
 
 4. **Upload your mp3s**
    ```sh
@@ -32,10 +32,10 @@ $0 in egress (R2 doesn't charge for bandwidth out), $0 for Pages.
    ```
    Repeat per file, or write a small loop over a local folder.
 
-5. **Add cover art** — drop images in `covers/` (this repo), referenced by
+5. **Add cover art** — drop images in `public/covers/`, referenced by
    relative path in `mixes.json`. These ship with the site itself, not R2.
 
-6. **Describe each mix** in `mixes.json`:
+6. **Describe each mix** in `public/mixes.json`:
    ```json
    {
      "slug": "2023-06-summer-house",
@@ -52,10 +52,12 @@ $0 in egress (R2 doesn't charge for bandwidth out), $0 for Pages.
 
 7. **Deploy the site to Cloudflare Pages**
    ```sh
-   npx wrangler pages deploy . --project-name=mixhoster
+   npx wrangler pages deploy public --project-name=mixhoster
    ```
-   Then in the Pages project settings, add your custom domain (e.g.
-   `yourdomain.com` or `mixes-site.yourdomain.com`).
+   Only the `public/` directory is deployed — `scripts/`, `README.md`, etc.
+   at the repo root are never published. Then in the Pages project
+   settings, add your custom domain (e.g. `yourdomain.com` or
+   `mixes-site.yourdomain.com`).
 
    Re-run the same deploy command any time you update `mixes.json` or add
    covers — no build step needed, it's plain static files.
@@ -64,12 +66,28 @@ $0 in egress (R2 doesn't charge for bandwidth out), $0 for Pages.
 
 Any static file server works, e.g.:
 ```sh
-npx serve .
+npx serve public
 ```
 
 ## Adding a new mix later
 
 1. `wrangler r2 object put` the mp3 to the bucket.
-2. Add a cover image to `covers/` if you have one.
-3. Add an entry to `mixes.json`.
-4. `wrangler pages deploy .`
+2. Add a cover image to `public/covers/` if you have one.
+3. Add an entry to `public/mixes.json`.
+4. `wrangler pages deploy public`
+
+## Recovering old mixes from Mixcloud
+
+If a mix was taken down (e.g. after cancelling a Mixcloud subscription) but
+still plays from your own account, its audio is served as HLS. Open the
+mix, open your browser's dev tools Network tab, and copy the `.m3u8`
+request URL. Then:
+
+```sh
+scripts/recover-mix.sh <slug> "<title>" <YYYY-MM-DD> "<m3u8-url>"
+```
+
+This downloads and transcodes the stream to mp3 (`ffmpeg` required —
+`brew install ffmpeg`), uploads it to R2, and appends an entry to
+`public/mixes.json`. Redeploy with `wrangler pages deploy public` when
+ready.
