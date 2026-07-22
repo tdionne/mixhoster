@@ -14,5 +14,13 @@
     "description": "",
     "audio": "pink-2009.mp3",
     "durationSeconds": 3843
+  },
+  {
+    "slug": "crowded-house-2006",
+    "title": "A Crowded House",
+    "date": "2006-05-01",
+    "description": "",
+    "audio": "crowded-house-2006.mp3",
+    "durationSeconds": 3892
   }
 ]
