@@ -62,5 +62,21 @@
     "description": "",
     "audio": "darkness-2-2015.mp3",
     "durationSeconds": 2644
+  },
+  {
+    "slug": "honda-tt-revolution-2016",
+    "title": "Honda TT Revolution",
+    "date": "2016-10-20",
+    "description": "",
+    "audio": "honda-tt-revolution-2016.mp3",
+    "durationSeconds": 3602
+  },
+  {
+    "slug": "ttrev-full-on-2016",
+    "title": "TTRev Full On",
+    "date": "2016-10-30",
+    "description": "",
+    "audio": "ttrev-full-on-2016.mp3",
+    "durationSeconds": 3602
   }
 ]

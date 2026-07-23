@@ -14,7 +14,7 @@
   <itunes:image href="https://mixhoster.com/cover.jpg" />
   <itunes:category text="Music" />
   <itunes:explicit>false</itunes:explicit>
-  <lastBuildDate>Thu, 23 Jul 2026 00:57:46 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 01:14:36 GMT</lastBuildDate>
   <item>
     <title>Thursday House Jams 35</title>
     <guid isPermaLink="false">thursday-house-james-35-2020</guid>
@@ -31,6 +31,24 @@
     <description>Thursday House Jams 33</description>
     <enclosure url="https://audio.mixhoster.com/thursday-house-jams-33-2020.mp3" length="152943669" type="audio/mpeg" />
     <itunes:duration>01:46:00</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <title>TTRev Full On</title>
+    <guid isPermaLink="false">ttrev-full-on-2016</guid>
+    <pubDate>Sun, 30 Oct 2016 12:00:00 GMT</pubDate>
+    <description>TTRev Full On</description>
+    <enclosure url="https://audio.mixhoster.com/ttrev-full-on-2016.mp3" length="80457123" type="audio/mpeg" />
+    <itunes:duration>01:00:02</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <title>Honda TT Revolution</title>
+    <guid isPermaLink="false">honda-tt-revolution-2016</guid>
+    <pubDate>Thu, 20 Oct 2016 12:00:00 GMT</pubDate>
+    <description>Honda TT Revolution</description>
+    <enclosure url="https://audio.mixhoster.com/honda-tt-revolution-2016.mp3" length="80457123" type="audio/mpeg" />
+    <itunes:duration>01:00:02</itunes:duration>
     <itunes:explicit>false</itunes:explicit>
   </item>
   <item>
