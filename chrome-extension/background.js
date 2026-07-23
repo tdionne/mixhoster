@@ -43,3 +43,33 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 });
+
+// Open the UI as its own window instead of the toolbar dropdown, so it
+// doesn't get dismissed when you switch tabs mid-recovery (a default_popup
+// closes as soon as it loses focus — a real window doesn't).
+let popupWindowId = null;
+
+chrome.action.onClicked.addListener(async (tab) => {
+  if (popupWindowId !== null) {
+    try {
+      await chrome.windows.update(popupWindowId, { focused: true });
+      return;
+    } catch (err) {
+      popupWindowId = null; // window was already closed
+    }
+  }
+
+  const win = await chrome.windows.create({
+    url: chrome.runtime.getURL(`popup.html?tabId=${tab.id}`),
+    type: "popup",
+    width: 380,
+    height: 560,
+  });
+  popupWindowId = win.id;
+});
+
+chrome.windows.onRemoved.addListener((windowId) => {
+  if (windowId === popupWindowId) {
+    popupWindowId = null;
+  }
+});

@@ -60,12 +60,35 @@ function extractPageInfo() {
   return { title, date };
 }
 
-async function main() {
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  const urls = await chrome.runtime.sendMessage({ type: "getCaptured", tabId: tab.id });
+// This window is opened by background.js with ?tabId=<id> of the mix tab
+// that was active when you clicked the extension icon — it's opened as a
+// standalone window rather than a default_popup precisely so it survives
+// switching back to that tab (or any other) while a recovery is running.
+async function resolveSourceTab() {
+  const tabId = Number(new URLSearchParams(location.search).get("tabId"));
+  if (tabId) {
+    try {
+      return await chrome.tabs.get(tabId);
+    } catch (err) {
+      // Source tab was closed; fall through.
+    }
+  }
+  return null;
+}
 
+async function main() {
+  const tab = await resolveSourceTab();
   const emptyEl = document.getElementById("empty");
   const formEl = document.getElementById("form");
+
+  if (!tab) {
+    emptyEl.textContent = "The mix tab this window was opened from has closed.";
+    emptyEl.style.display = "block";
+    formEl.style.display = "none";
+    return;
+  }
+
+  const urls = await chrome.runtime.sendMessage({ type: "getCaptured", tabId: tab.id });
 
   if (!urls || urls.length === 0) {
     emptyEl.style.display = "block";

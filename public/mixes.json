@@ -46,5 +46,13 @@
     "description": "",
     "audio": "darkness-winter-2015-2015.mp3",
     "durationSeconds": 3486
+  },
+  {
+    "slug": "live-at-rewind-2011-2011",
+    "title": "Live at Rewind (2011)",
+    "date": "2011-06-20",
+    "description": "",
+    "audio": "live-at-rewind-2011-2011.mp3",
+    "durationSeconds": 3486
   }
 ]

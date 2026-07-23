@@ -18,7 +18,9 @@ Not published to the Chrome Web Store; load it unpacked for personal use.
 1. Open one of your mixes on mixcloud.com and press play (this is what
    triggers the `.m3u8` request).
 2. Click the extension icon. It shows a badge with the number of stream
-   URLs captured on that tab.
+   URLs captured on that tab, and opens the helper in its own small
+   window — separate from the toolbar dropdown, so it stays open (and any
+   in-progress "Launch remux" keeps running) even if you switch tabs.
 3. The popup pre-fills a title/date guess from the page and a slug —
    correct them if needed.
 4. Either:
