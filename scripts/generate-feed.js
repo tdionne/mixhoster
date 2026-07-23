@@ -16,7 +16,7 @@ const FEED_XML = path.join(PUBLIC_DIR, "feed.xml");
 const SITE_URL = "https://mixhoster.com/";
 const SHOW_TITLE = "Mixes";
 const SHOW_DESCRIPTION = "A DJ mix archive.";
-const SHOW_AUTHOR = "Tim Dionne";
+const SHOW_AUTHOR = "DJ DIO";
 const SHOW_EMAIL = "tim@thedionnes.cc";
 const SHOW_COVER_URL = `${SITE_URL}cover.jpg`;
 

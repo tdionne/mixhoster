@@ -6,15 +6,15 @@
   <atom:link href="https://mixhoster.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>A DJ mix archive.</description>
   <language>en-us</language>
-  <itunes:author>Tim Dionne</itunes:author>
+  <itunes:author>DJ DIO</itunes:author>
   <itunes:owner>
-    <itunes:name>Tim Dionne</itunes:name>
+    <itunes:name>DJ DIO</itunes:name>
     <itunes:email>tim@thedionnes.cc</itunes:email>
   </itunes:owner>
   <itunes:image href="https://mixhoster.com/cover.jpg" />
   <itunes:category text="Music" />
   <itunes:explicit>false</itunes:explicit>
-  <lastBuildDate>Thu, 23 Jul 2026 01:53:24 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 02:37:49 GMT</lastBuildDate>
   <item>
     <title>Thursday House Jams 35</title>
     <guid isPermaLink="false">thursday-house-james-35-2020</guid>
