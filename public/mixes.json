@@ -1,5 +1,13 @@
 [
   {
+    "slug": "chug-1999",
+    "title": "Chug",
+    "date": "1999-03-28",
+    "description": "",
+    "audio": "chug-1999.mp3",
+    "durationSeconds": 4274
+  },
+  {
     "slug": "table-top-1994",
     "title": "Table Top",
     "date": "1994-06-12",
