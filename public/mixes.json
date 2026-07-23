@@ -38,5 +38,13 @@
     "description": "",
     "audio": "thursday-house-james-35-2020.mp3",
     "durationSeconds": 4290
+  },
+  {
+    "slug": "darkness-winter-2015-2015",
+    "title": "Darkness - Winter 2015",
+    "date": "2015-12-01",
+    "description": "",
+    "audio": "darkness-winter-2015-2015.mp3",
+    "durationSeconds": 3486
   }
 ]
