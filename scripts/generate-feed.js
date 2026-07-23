@@ -65,6 +65,8 @@ function headContentLength(url) {
 async function buildItem(mix, audioBaseUrl) {
   const audioUrl = new URL(mix.audio, audioBaseUrl).href;
   const length = await headContentLength(audioUrl);
+  const seasonTag = mix.season != null ? `\n    <itunes:season>${mix.season}</itunes:season>` : "";
+  const episodeTag = mix.episode != null ? `\n    <itunes:episode>${mix.episode}</itunes:episode>` : "";
   return `
   <item>
     <title>${xmlEscape(mix.title)}</title>
@@ -72,7 +74,7 @@ async function buildItem(mix, audioBaseUrl) {
     <pubDate>${rfc2822(mix.date)}</pubDate>
     <description>${xmlEscape(mix.description || mix.title)}</description>
     <enclosure url="${xmlEscape(audioUrl)}" length="${length}" type="audio/mpeg" />
-    <itunes:duration>${durationHMS(mix.durationSeconds || 0)}</itunes:duration>
+    <itunes:duration>${durationHMS(mix.durationSeconds || 0)}</itunes:duration>${seasonTag}${episodeTag}
     <itunes:explicit>false</itunes:explicit>
   </item>`;
 }

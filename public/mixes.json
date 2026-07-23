@@ -29,7 +29,9 @@
     "date": "2020-01-15",
     "description": "",
     "audio": "thursday-house-jams-33-2020.mp3",
-    "durationSeconds": 6360
+    "durationSeconds": 6360,
+    "season": 1,
+    "episode": 1
   },
   {
     "slug": "thursday-house-james-35-2020",
@@ -37,7 +39,9 @@
     "date": "2020-01-28",
     "description": "",
     "audio": "thursday-house-james-35-2020.mp3",
-    "durationSeconds": 4290
+    "durationSeconds": 4290,
+    "season": 1,
+    "episode": 2
   },
   {
     "slug": "darkness-winter-2015-2015",
@@ -45,7 +49,9 @@
     "date": "2015-12-01",
     "description": "",
     "audio": "darkness-winter-2015-2015.mp3",
-    "durationSeconds": 3486
+    "durationSeconds": 3486,
+    "season": 2,
+    "episode": 1
   },
   {
     "slug": "live-at-rewind-2011-2011",
@@ -61,7 +67,9 @@
     "date": "2016-01-01",
     "description": "",
     "audio": "darkness-2-2015.mp3",
-    "durationSeconds": 2644
+    "durationSeconds": 2644,
+    "season": 2,
+    "episode": 2
   },
   {
     "slug": "honda-tt-revolution-2016",
@@ -69,7 +77,9 @@
     "date": "2016-10-20",
     "description": "",
     "audio": "honda-tt-revolution-2016.mp3",
-    "durationSeconds": 3602
+    "durationSeconds": 3602,
+    "season": 3,
+    "episode": 1
   },
   {
     "slug": "ttrev-full-on-2016",
@@ -77,6 +87,8 @@
     "date": "2016-10-30",
     "description": "",
     "audio": "ttrev-full-on-2016.mp3",
-    "durationSeconds": 3602
+    "durationSeconds": 3602,
+    "season": 3,
+    "episode": 2
   }
 ]
