@@ -40,7 +40,11 @@ function rfc2822(dateStr) {
   const [year, month, day] = dateStr.split("-").map(Number);
   // mixes.json only carries a date, not a time — anchor at noon UTC so
   // the day doesn't shift backwards for readers west of UTC.
-  return new Date(Date.UTC(year, month - 1, day, 12)).toUTCString();
+  // Use a numeric +0000 offset rather than toUTCString()'s "GMT" suffix —
+  // some podcast parsers are stricter about the offset form.
+  return new Date(Date.UTC(year, month - 1, day, 12))
+    .toUTCString()
+    .replace("GMT", "+0000");
 }
 
 function durationHMS(totalSeconds) {
