@@ -72,7 +72,7 @@ async function buildItem(mix, audioBaseUrl) {
     <title>${xmlEscape(mix.title)}</title>
     <guid isPermaLink="false">${xmlEscape(mix.slug)}</guid>
     <pubDate>${rfc2822(mix.date)}</pubDate>
-    <description>${xmlEscape(mix.description || mix.title)}</description>
+    <description>${xmlEscape(mix.description || `Recorded ${mix.date}.`)}</description>
     <enclosure url="${xmlEscape(audioUrl)}" length="${length}" type="audio/mpeg" />
     <itunes:duration>${durationHMS(mix.durationSeconds || 0)}</itunes:duration>${seasonTag}${episodeTag}
     <itunes:explicit>false</itunes:explicit>
