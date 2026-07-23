@@ -54,5 +54,13 @@
     "description": "",
     "audio": "live-at-rewind-2011-2011.mp3",
     "durationSeconds": 3486
+  },
+  {
+    "slug": "darkness-2-2015",
+    "title": "Darkness.2",
+    "date": "2016-01-01",
+    "description": "",
+    "audio": "darkness-2-2015.mp3",
+    "durationSeconds": 2644
   }
 ]

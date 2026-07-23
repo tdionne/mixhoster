@@ -76,6 +76,25 @@ npx serve public
 3. Add an entry to `public/mixes.json`.
 4. `wrangler pages deploy public`
 
+## Podcast feed (Apple Podcasts, Overcast, etc.)
+
+```sh
+node scripts/generate-feed.js
+```
+
+Regenerates `public/feed.xml` from `mixes.json`. Most podcast apps let you
+follow a show directly by feed URL (`https://yourdomain.com/feed.xml`) with
+no directory submission needed — good for sharing with a small group.
+Spotify is the exception: it only supports subscribing through its own
+catalog, which requires submitting the feed at
+[Spotify for Podcasters](https://podcasters.spotify.com) and passing their
+content review.
+
+Before sharing the feed, add a square cover image (1400–3000px, jpg or
+png) at `public/cover.jpg` — the script warns if it's missing but still
+writes the feed. Re-run the script and redeploy any time `mixes.json`
+changes.
+
 ## Recovering old mixes from Mixcloud
 
 If a mix was taken down (e.g. after cancelling a Mixcloud subscription) but
